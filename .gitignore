@@ -42,6 +42,11 @@ data/processed/*
 !data/processed/.gitkeep
 data/splits/*
 !data/splits/.gitkeep
+!data/splits/*.csv
+!data/splits/*.json
+
+# Scratch and Temporary downloads
+scratch/
 
 # Model Checkpoints & Large Binaries
 models/*.pt

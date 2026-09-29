@@ -1,0 +1,88 @@
+{
+  "random_seed": 42,
+  "split_strategy": "Group-Stratified (Leaf-Group Isolated)",
+  "train_target_ratio": 0.7,
+  "val_target_ratio": 0.15,
+  "test_target_ratio": 0.15,
+  "counts": {
+    "total": 9175,
+    "train": 6422,
+    "val": 1376,
+    "test": 1377
+  },
+  "actual_ratios": {
+    "train": 0.6999,
+    "val": 0.15,
+    "test": 0.1501
+  },
+  "class_breakdown": {
+    "Apple___Apple_scab": {
+      "train": 441,
+      "val": 94,
+      "test": 95,
+      "total": 630
+    },
+    "Apple___Black_rot": {
+      "train": 435,
+      "val": 93,
+      "test": 93,
+      "total": 621
+    },
+    "Apple___Cedar_apple_rust": {
+      "train": 192,
+      "val": 41,
+      "test": 42,
+      "total": 275
+    },
+    "Apple___healthy": {
+      "train": 1152,
+      "val": 247,
+      "test": 246,
+      "total": 1645
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "train": 359,
+      "val": 77,
+      "test": 77,
+      "total": 513
+    },
+    "Corn_(maize)___Common_rust_": {
+      "train": 834,
+      "val": 179,
+      "test": 179,
+      "total": 1192
+    },
+    "Corn_(maize)___healthy": {
+      "train": 813,
+      "val": 174,
+      "test": 175,
+      "total": 1162
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "train": 690,
+      "val": 148,
+      "test": 147,
+      "total": 985
+    },
+    "Potato___Early_blight": {
+      "train": 700,
+      "val": 150,
+      "test": 150,
+      "total": 1000
+    },
+    "Potato___healthy": {
+      "train": 106,
+      "val": 23,
+      "test": 23,
+      "total": 152
+    },
+    "Potato___Late_blight": {
+      "train": 700,
+      "val": 150,
+      "test": 150,
+      "total": 1000
+    }
+  },
+  "manifest_path": "C:\\Users\\DELL\\Downloads\\kp-smart-crop-doctor\\data\\splits\\dataset_manifest.csv",
+  "leak_free_verified": true
+}

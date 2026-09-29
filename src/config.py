@@ -37,6 +37,7 @@ BATCH_SIZE = int(os.getenv("BATCH_SIZE", 32))
 LEARNING_RATE = float(os.getenv("LEARNING_RATE", 1e-4))
 NUM_EPOCHS = int(os.getenv("NUM_EPOCHS", 15))
 DEFAULT_BACKBONE = os.getenv("VISION_MODEL_BACKBONE", "mobilenet_v3_large")
+NUM_CLASSES = int(os.getenv("NUM_CLASSES", 11))
 TOP_K_PREDICTIONS = int(os.getenv("TOP_K", 2))
 CONFIDENCE_THRESHOLD = float(os.getenv("CONFIDENCE_THRESHOLD", 0.60))
 

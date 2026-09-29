@@ -1,0 +1,39 @@
+{
+  "dataset_root": "C:\\Users\\DELL\\Downloads\\kp-smart-crop-doctor\\data\\raw",
+  "total_images": 9175,
+  "total_classes": 11,
+  "class_distribution": {
+    "Apple___Apple_scab": 630,
+    "Apple___Black_rot": 621,
+    "Apple___Cedar_apple_rust": 275,
+    "Apple___healthy": 1645,
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": 513,
+    "Corn_(maize)___Common_rust_": 1192,
+    "Corn_(maize)___healthy": 1162,
+    "Corn_(maize)___Northern_Leaf_Blight": 985,
+    "Potato___Early_blight": 1000,
+    "Potato___healthy": 152,
+    "Potato___Late_blight": 1000
+  },
+  "class_imbalance": {
+    "min_samples": 152,
+    "max_samples": 1645,
+    "mean_samples": 834.1,
+    "std_samples": 419.8,
+    "imbalance_ratio": 10.82
+  },
+  "duplicate_analysis": {
+    "exact_duplicate_clusters": 7,
+    "redundant_exact_duplicate_images": 7,
+    "near_duplicate_clusters": 9,
+    "redundant_near_duplicate_images": 9
+  },
+  "resolution_distribution": {
+    "256x256": 9175
+  },
+  "color_mode_distribution": {
+    "RGB": 9175
+  },
+  "corrupted_images_detected": 0,
+  "corrupted_files": []
+}
