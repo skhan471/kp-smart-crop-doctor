@@ -1,0 +1,48 @@
+# ==============================================================================
+# KP Smart Crop Doctor: Requirements Specification
+# Capstone Project: Explainable, Knowledge-Grounded Agricultural Advisory System
+# Khyber Pakhtunkhwa (KP), Pakistan
+# ==============================================================================
+
+# Core Deep Learning & Computer Vision
+torch>=2.2.0
+torchvision>=0.17.0
+numpy>=1.24.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+pillow>=10.0.0
+
+# Computer Vision & Explainability (Grad-CAM)
+opencv-python-headless>=4.8.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Document Processing & Knowledge Base Indexing
+pypdf>=3.17.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Vector Embeddings & Similarity Retrieval (RAG)
+sentence-transformers>=2.3.0
+faiss-cpu>=1.7.4
+
+# LLM Providers & Prompt Pipelines
+huggingface-hub>=0.20.0
+openai>=1.10.0
+groq>=0.4.0
+requests>=2.31.0
+
+# Multilingual Support (Urdu & English)
+deep-translator>=1.11.4
+
+# User Interface & Web Dashboard
+streamlit>=1.35.0
+
+# System, Configuration & Reproducibility
+python-dotenv>=1.0.1
+pyyaml>=6.0.1
+tqdm>=4.66.0
+
+# Testing & Code Quality
+pytest>=7.4.0
+pytest-cov>=4.1.0
