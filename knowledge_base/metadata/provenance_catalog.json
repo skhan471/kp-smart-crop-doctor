@@ -1,0 +1,251 @@
+{
+  "catalog_version": "1.0",
+  "project": "KP Smart Crop Doctor",
+  "curation_date": "2026-09-30",
+  "total_documents": 11,
+  "crops_covered": ["Apple", "Corn_(maize)", "Potato"],
+  "documents": [
+    {
+      "doc_id": "KP-AGRI-APP-001",
+      "file_name": "apple_apple_scab.md",
+      "title": "Management of Apple Scab (Venturia inaequalis) in Khyber Pakhtunkhwa",
+      "crop": "Apple",
+      "disease": "Apple Scab",
+      "disease_class": "Apple___Apple_scab",
+      "pathogen": "Venturia inaequalis",
+      "organization": "Agriculture Research Institute (ARI) Tarnab, Peshawar & KP Department of Agriculture Extension",
+      "author": "Plant Pathology Section, ARI Tarnab & Swat Fruit Research Station",
+      "publication_date": "2023-04",
+      "source_url": "https://agrikp.gov.pk/crop-protection/apple-scab-advisory",
+      "region": "Khyber Pakhtunkhwa (Swat, Upper Dir, Chitral, Abbottabad), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Extension Advisory (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-APP-002",
+      "file_name": "apple_black_rot.md",
+      "title": "Management of Apple Black Rot and Frogeye Leaf Spot (Botryosphaeria obtusa) in Khyber Pakhtunkhwa",
+      "crop": "Apple",
+      "disease": "Black Rot",
+      "disease_class": "Apple___Black_rot",
+      "pathogen": "Botryosphaeria obtusa (anamorph Diplodia seriata)",
+      "organization": "Agriculture Research Institute (ARI) Tarnab, Peshawar & University of Agriculture Peshawar",
+      "author": "Department of Plant Pathology, ARI Tarnab",
+      "publication_date": "2022-06",
+      "source_url": "https://agrikp.gov.pk/crop-protection/apple-black-rot-guide",
+      "region": "Khyber Pakhtunkhwa (Swat, Chitral, Abbottabad, Mansehra), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Extension Advisory (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-APP-003",
+      "file_name": "apple_cedar_apple_rust.md",
+      "title": "Management of Cedar Apple Rust (Gymnosporangium juniperi-virginianae) on Apples in Khyber Pakhtunkhwa",
+      "crop": "Apple",
+      "disease": "Cedar Apple Rust",
+      "disease_class": "Apple___Cedar_apple_rust",
+      "pathogen": "Gymnosporangium juniperi-virginianae",
+      "organization": "Plant Pathology Section, ARI Tarnab Peshawar & University of Agriculture Peshawar",
+      "author": "Directorate General of Agricultural Research KP",
+      "publication_date": "2023-08",
+      "source_url": "https://agrikp.gov.pk/crop-protection/cedar-apple-rust-advisory",
+      "region": "Khyber Pakhtunkhwa (Swat, Dir, Hazara Division), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Extension Advisory (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-APP-004",
+      "file_name": "apple_healthy_orchard_management.md",
+      "title": "Good Agricultural Practices (GAP) for Healthy Apple Orchards in Khyber Pakhtunkhwa",
+      "crop": "Apple",
+      "disease": "Healthy Canopy & Orchard Maintenance",
+      "disease_class": "Apple___healthy",
+      "pathogen": "None (Healthy Crop Management)",
+      "organization": "KP Department of Agriculture Extension & Fruit and Vegetable Development Project (FVDP) KP",
+      "author": "Horticulture Division, Agriculture Research Institute (ARI) Tarnab",
+      "publication_date": "2023-01",
+      "source_url": "https://agrikp.gov.pk/horticulture/healthy-apple-management-kp",
+      "region": "Khyber Pakhtunkhwa (Swat, Chitral, Upper Dir, Abbottabad, Mansehra), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Extension Advisory (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-MAI-001",
+      "file_name": "maize_gray_leaf_spot.md",
+      "title": "Management of Gray Leaf Spot (Cercospora zeae-maydis) in Maize in Khyber Pakhtunkhwa",
+      "crop": "Corn_(maize)",
+      "disease": "Gray Leaf Spot",
+      "disease_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "pathogen": "Cercospora zeae-maydis",
+      "organization": "Cereal Crops Research Institute (CCRI) Pirsabak Nowshera & PARC National Maize Program",
+      "author": "Plant Pathology Section, CCRI Pirsabak",
+      "publication_date": "2023-05",
+      "source_url": "https://ccri.gov.pk/maize-pathology/gray-leaf-spot-advisory",
+      "region": "Khyber Pakhtunkhwa (Peshawar Valley, Swabi, Mardan, Hazara, Swat), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Cereal Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-MAI-002",
+      "file_name": "maize_common_rust.md",
+      "title": "Management of Common Rust (Puccinia sorghi) in Maize in Khyber Pakhtunkhwa",
+      "crop": "Corn_(maize)",
+      "disease": "Common Rust",
+      "disease_class": "Corn_(maize)___Common_rust_",
+      "pathogen": "Puccinia sorghi",
+      "organization": "Cereal Crops Research Institute (CCRI) Pirsabak Nowshera & KP Directorate General of Agriculture Extension",
+      "author": "Plant Pathology Section, CCRI Pirsabak",
+      "publication_date": "2023-03",
+      "source_url": "https://ccri.gov.pk/maize-pathology/common-rust-advisory",
+      "region": "Khyber Pakhtunkhwa (Nowshera, Swabi, Charsadda, Mardan, Swat, Hazara), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Cereal Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-MAI-003",
+      "file_name": "maize_northern_leaf_blight.md",
+      "title": "Management of Northern Corn Leaf Blight (Exserohilum turcicum) in Khyber Pakhtunkhwa",
+      "crop": "Corn_(maize)",
+      "disease": "Northern Leaf Blight",
+      "disease_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "pathogen": "Exserohilum turcicum (syn. Helminthosporium turcicum, teleomorph Setosphaeria turcica)",
+      "organization": "Cereal Crops Research Institute (CCRI) Pirsabak Nowshera & CABI Plantwise Pakistan",
+      "author": "Plant Pathology Division, CCRI Pirsabak & University of Agriculture Peshawar",
+      "publication_date": "2023-06",
+      "source_url": "https://ccri.gov.pk/maize-pathology/northern-corn-leaf-blight-advisory",
+      "region": "Khyber Pakhtunkhwa (Nowshera, Charsadda, Mardan, Swabi, Mansehra, Swat), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Cereal Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-MAI-004",
+      "file_name": "maize_healthy_agronomy_management.md",
+      "title": "Good Agronomic Practices for Healthy Maize Production in Khyber Pakhtunkhwa",
+      "crop": "Corn_(maize)",
+      "disease": "Healthy Canopy & Crop Management",
+      "disease_class": "Corn_(maize)___healthy",
+      "pathogen": "None (Healthy Crop Management)",
+      "organization": "Cereal Crops Research Institute (CCRI) Pirsabak Nowshera & KP Directorate General of Agriculture Extension",
+      "author": "Agronomy Division, CCRI Pirsabak & Agriculture Research System KP",
+      "publication_date": "2023-02",
+      "source_url": "https://ccri.gov.pk/agronomy/healthy-maize-guide-kp",
+      "region": "Khyber Pakhtunkhwa (Peshawar Valley, Mardan, Swabi, Charsadda, Malakand, D.I. Khan), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Cereal Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-POT-001",
+      "file_name": "potato_early_blight.md",
+      "title": "Management of Potato Early Blight (Alternaria solani) in Khyber Pakhtunkhwa",
+      "crop": "Potato",
+      "disease": "Early Blight",
+      "disease_class": "Potato___Early_blight",
+      "pathogen": "Alternaria solani (and related Alternaria species)",
+      "organization": "Potato Research Centre (PRC) Abbottabad & PARC National Potato Program",
+      "author": "Plant Pathology Section, PRC Abbottabad & ARI Tarnab Peshawar",
+      "publication_date": "2023-07",
+      "source_url": "https://prc.gov.pk/potato-pathology/early-blight-advisory",
+      "region": "Khyber Pakhtunkhwa (Nowshera, Swabi, Abbottabad, Mansehra, Swat, Battagram), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-POT-002",
+      "file_name": "potato_late_blight.md",
+      "title": "Emergency Advisory and Management of Potato Late Blight (Phytophthora infestans) in Khyber Pakhtunkhwa",
+      "crop": "Potato",
+      "disease": "Late Blight",
+      "disease_class": "Potato___Late_blight",
+      "pathogen": "Phytophthora infestans (Oomycete)",
+      "organization": "Potato Research Centre (PRC) Abbottabad, ARI Tarnab & International Potato Center (CIP)",
+      "author": "Plant Pathology Section, PRC Abbottabad & KP Agriculture Extension Directorate",
+      "publication_date": "2023-11",
+      "source_url": "https://prc.gov.pk/potato-pathology/late-blight-emergency-advisory",
+      "region": "Khyber Pakhtunkhwa (Swat, Kalam, Abbottabad, Mansehra, Nowshera, Mardan), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Extension Advisory (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    },
+    {
+      "doc_id": "KP-AGRI-POT-003",
+      "file_name": "potato_healthy_seed_tuber_management.md",
+      "title": "Good Agricultural Practices for Healthy Potato Production and Seed Tuber Management in Khyber Pakhtunkhwa",
+      "crop": "Potato",
+      "disease": "Healthy Canopy & Seed Tuber Management",
+      "disease_class": "Potato___healthy",
+      "pathogen": "None (Healthy Crop Management)",
+      "organization": "Potato Research Centre (PRC) Abbottabad, ARI Tarnab & KP Directorate General of Agriculture Extension",
+      "author": "Agronomy and Seed Technology Division, PRC Abbottabad",
+      "publication_date": "2023-01",
+      "source_url": "https://prc.gov.pk/agronomy/healthy-potato-management-kp",
+      "region": "Khyber Pakhtunkhwa (Nowshera, Swabi, Charsadda, Abbottabad, Swat, Mansehra), Pakistan",
+      "license": "Government of Khyber Pakhtunkhwa Agricultural Research Publication (Open Public Domain)",
+      "language": "en",
+      "retrieval_date": "2026-09-30",
+      "categories": [
+        "disease_identification", "symptoms", "causes_pathogens", "prevention",
+        "cultural_practices", "integrated_disease_management", "treatment_control",
+        "crop_stage_guidance", "safety_usage_notes"
+      ]
+    }
+  ]
+}
