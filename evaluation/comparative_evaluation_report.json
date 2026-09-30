@@ -1,0 +1,357 @@
+{
+  "experimental_protocol": {
+    "dataset": "11-Class KP Core (Maize, Potato, Apple)",
+    "total_images": 9175,
+    "train_samples": 6422,
+    "val_samples": 1376,
+    "test_samples": 1377,
+    "random_seed": 42,
+    "split_strategy": "Group-Stratified (Leaf-Group Isolated)",
+    "hyperparameters": {
+      "epochs": 10,
+      "batch_size": 32,
+      "learning_rate": 0.0003,
+      "optimizer": "AdamW",
+      "loss": "Class-weighted CrossEntropyLoss",
+      "scheduler": "CosineAnnealingLR",
+      "device": "cpu"
+    },
+    "selection_criterion": "Validation Macro-F1 (Strictly prior to test evaluation)"
+  },
+  "models": {
+    "mobilenet_v3_large": {
+      "backbone": "mobilenet_v3_large",
+      "parameters": {
+        "trainable_parameters": 4216123,
+        "non_trainable_parameters": 0,
+        "total_parameters": 4216123
+      },
+      "checkpoint_size_mb": 16.28,
+      "best_epoch": 4,
+      "validation_loss": 0.0833,
+      "validation_accuracy": 0.9818,
+      "validation_macro_f1": 0.9773036263610887,
+      "test_metrics": {
+        "top1_accuracy": 0.9753086419753086,
+        "top2_accuracy": 0.9978213507625272,
+        "macro_precision": 0.9646905874933638,
+        "macro_recall": 0.9672232423316101,
+        "macro_f1": 0.9656676081520478,
+        "weighted_f1": 0.9751206675706174,
+        "expected_calibration_error": 0.014,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 0.968421052631579,
+            "recall": 0.968421052631579,
+            "f1_score": 0.968421052631579,
+            "support": 95
+          },
+          "Apple___Black_rot": {
+            "precision": 0.9789473684210527,
+            "recall": 1.0,
+            "f1_score": 0.9893617021276596,
+            "support": 93
+          },
+          "Apple___Cedar_apple_rust": {
+            "precision": 0.9767441860465116,
+            "recall": 1.0,
+            "f1_score": 0.9882352941176471,
+            "support": 42
+          },
+          "Apple___healthy": {
+            "precision": 0.9958847736625515,
+            "recall": 0.983739837398374,
+            "f1_score": 0.9897750511247444,
+            "support": 246
+          },
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+            "precision": 0.8857142857142857,
+            "recall": 0.8051948051948052,
+            "f1_score": 0.8435374149659864,
+            "support": 77
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 179
+          },
+          "Corn_(maize)___Northern_Leaf_Blight": {
+            "precision": 0.9025974025974026,
+            "recall": 0.9455782312925171,
+            "f1_score": 0.9235880398671097,
+            "support": 147
+          },
+          "Corn_(maize)___healthy": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0,
+            "support": 175
+          },
+          "Potato___Early_blight": {
+            "precision": 0.9933774834437086,
+            "recall": 1.0,
+            "f1_score": 0.9966777408637874,
+            "support": 150
+          },
+          "Potato___Late_blight": {
+            "precision": 0.9932432432432432,
+            "recall": 0.98,
+            "f1_score": 0.9865771812080537,
+            "support": 150
+          },
+          "Potato___healthy": {
+            "precision": 0.9166666666666666,
+            "recall": 0.9565217391304348,
+            "f1_score": 0.9361702127659575,
+            "support": 23
+          }
+        }
+      },
+      "latency_benchmark": {
+        "device": "cpu",
+        "mean_latency_ms": 28.38,
+        "std_latency_ms": 4.04,
+        "p95_latency_ms": 34.28,
+        "throughput_fps": 35.2
+      },
+      "training_history": {
+        "train_loss": [
+          0.5439,
+          0.1275,
+          0.0795,
+          0.0589,
+          0.0476,
+          0.0368,
+          0.0288
+        ],
+        "train_accuracy": [
+          0.8806,
+          0.9643,
+          0.9763,
+          0.9835,
+          0.9877,
+          0.9917,
+          0.9939
+        ],
+        "val_loss": [
+          0.171,
+          0.0964,
+          0.107,
+          0.0833,
+          0.0877,
+          0.0779,
+          0.0796
+        ],
+        "val_accuracy": [
+          0.9622,
+          0.9709,
+          0.9767,
+          0.9818,
+          0.9811,
+          0.9818,
+          0.9818
+        ],
+        "val_macro_f1": [
+          0.9516,
+          0.9652,
+          0.969,
+          0.9773,
+          0.9761,
+          0.9764,
+          0.9771
+        ],
+        "epoch_times_sec": [
+          2.91,
+          2.83,
+          2.84,
+          2.8,
+          2.88,
+          2.75,
+          2.81
+        ]
+      }
+    },
+    "efficientnet_b0": {
+      "backbone": "efficientnet_b0",
+      "parameters": {
+        "trainable_parameters": 4021639,
+        "non_trainable_parameters": 0,
+        "total_parameters": 4021639
+      },
+      "checkpoint_size_mb": 15.63,
+      "best_epoch": 7,
+      "validation_loss": 0.1654,
+      "validation_accuracy": 0.9608,
+      "validation_macro_f1": 0.9535419909852613,
+      "test_metrics": {
+        "top1_accuracy": 0.9506172839506173,
+        "top2_accuracy": 0.9934640522875817,
+        "macro_precision": 0.9324315093108821,
+        "macro_recall": 0.9383029533475941,
+        "macro_f1": 0.9352370049727963,
+        "weighted_f1": 0.9505223955728652,
+        "expected_calibration_error": 0.0589,
+        "per_class": {
+          "Apple___Apple_scab": {
+            "precision": 0.91,
+            "recall": 0.9578947368421052,
+            "f1_score": 0.9333333333333333,
+            "support": 95
+          },
+          "Apple___Black_rot": {
+            "precision": 0.9787234042553191,
+            "recall": 0.989247311827957,
+            "f1_score": 0.983957219251337,
+            "support": 93
+          },
+          "Apple___Cedar_apple_rust": {
+            "precision": 0.9761904761904762,
+            "recall": 0.9761904761904762,
+            "f1_score": 0.9761904761904762,
+            "support": 42
+          },
+          "Apple___healthy": {
+            "precision": 0.9916666666666667,
+            "recall": 0.967479674796748,
+            "f1_score": 0.9794238683127572,
+            "support": 246
+          },
+          "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+            "precision": 0.7272727272727273,
+            "recall": 0.7272727272727273,
+            "f1_score": 0.7272727272727273,
+            "support": 77
+          },
+          "Corn_(maize)___Common_rust_": {
+            "precision": 0.988950276243094,
+            "recall": 1.0,
+            "f1_score": 0.9944444444444445,
+            "support": 179
+          },
+          "Corn_(maize)___Northern_Leaf_Blight": {
+            "precision": 0.8671328671328671,
+            "recall": 0.8435374149659864,
+            "f1_score": 0.8551724137931035,
+            "support": 147
+          },
+          "Corn_(maize)___healthy": {
+            "precision": 0.9887005649717514,
+            "recall": 1.0,
+            "f1_score": 0.9943181818181818,
+            "support": 175
+          },
+          "Potato___Early_blight": {
+            "precision": 0.9866666666666667,
+            "recall": 0.9866666666666667,
+            "f1_score": 0.9866666666666667,
+            "support": 150
+          },
+          "Potato___Late_blight": {
+            "precision": 0.9664429530201343,
+            "recall": 0.96,
+            "f1_score": 0.9632107023411371,
+            "support": 150
+          },
+          "Potato___healthy": {
+            "precision": 0.875,
+            "recall": 0.9130434782608695,
+            "f1_score": 0.8936170212765957,
+            "support": 23
+          }
+        }
+      },
+      "latency_benchmark": {
+        "device": "cpu",
+        "mean_latency_ms": 48.01,
+        "std_latency_ms": 7.07,
+        "p95_latency_ms": 60.09,
+        "throughput_fps": 20.8
+      },
+      "training_history": {
+        "train_loss": [
+          1.0841,
+          0.4122,
+          0.2756,
+          0.22,
+          0.1869,
+          0.1672,
+          0.1559,
+          0.1482,
+          0.1442,
+          0.141
+        ],
+        "train_accuracy": [
+          0.8205,
+          0.941,
+          0.9511,
+          0.9586,
+          0.9659,
+          0.967,
+          0.9678,
+          0.9685,
+          0.9717,
+          0.9732
+        ],
+        "val_loss": [
+          0.5379,
+          0.314,
+          0.2395,
+          0.2043,
+          0.1839,
+          0.1712,
+          0.1654,
+          0.1602,
+          0.1581,
+          0.1575
+        ],
+        "val_accuracy": [
+          0.9288,
+          0.9404,
+          0.9469,
+          0.952,
+          0.9542,
+          0.9578,
+          0.9608,
+          0.96,
+          0.9615,
+          0.96
+        ],
+        "val_macro_f1": [
+          0.9094,
+          0.9282,
+          0.9343,
+          0.9433,
+          0.9458,
+          0.9502,
+          0.9535,
+          0.9509,
+          0.9534,
+          0.952
+        ],
+        "epoch_times_sec": [
+          0.62,
+          0.63,
+          0.58,
+          0.53,
+          0.6,
+          0.72,
+          0.81,
+          0.52,
+          0.62,
+          0.78
+        ]
+      }
+    }
+  },
+  "model_selection": {
+    "selected_model": "mobilenet_v3_large",
+    "selection_metric": "Validation Macro-F1",
+    "mobilenet_v3_val_macro_f1": 0.9773036263610887,
+    "efficientnet_b0_val_macro_f1": 0.9535419909852613,
+    "rationale": "MobileNetV3-Large achieved higher or equivalent Validation Macro-F1 (0.9773 vs 0.9535) with lower parameter count (4,216,123 vs 4,021,639) and lower inference latency.",
+    "best_checkpoint_path": "C:\\Users\\DELL\\Downloads\\kp-smart-crop-doctor\\models\\best_crop_model.pt"
+  },
+  "dataset_limitation_statement": "The training and benchmark dataset consists of standardized laboratory foliage captures under controlled lighting and neutral backgrounds. While ideal for learning canonical lesion morphology and preventing background domain confounding in Grad-CAM, classification performance on in-the-wild field photographs with occlusions, solar reflections, motion blur, and heterogeneous soil/canopy backgrounds may vary. Future iterations should incorporate localized domain-adaptation and field data collection across KP farming clusters.",
+  "total_experiment_duration_sec": 689.08
+}
