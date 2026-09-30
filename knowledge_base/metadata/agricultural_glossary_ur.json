@@ -1,0 +1,209 @@
+{
+  "glossary_metadata": {
+    "title": "Bilingual Agricultural Terminology Glossary (English - Urdu)",
+    "project": "KP Smart Crop Doctor",
+    "region": "Khyber Pakhtunkhwa, Pakistan",
+    "version": "1.0",
+    "date": "2026-09-30"
+  },
+  "terms": [
+    {
+      "english": "Apple",
+      "urdu": "سیب",
+      "transliteration": "Seb",
+      "category": "crop"
+    },
+    {
+      "english": "Maize",
+      "urdu": "مکئی",
+      "transliteration": "Makai",
+      "category": "crop"
+    },
+    {
+      "english": "Corn",
+      "urdu": "مکئی",
+      "transliteration": "Makai",
+      "category": "crop"
+    },
+    {
+      "english": "Potato",
+      "urdu": "آلو",
+      "transliteration": "Aloo",
+      "category": "crop"
+    },
+    {
+      "english": "Apple Scab",
+      "urdu": "سیب کا پپڑی روگ (ایپل سکيب)",
+      "transliteration": "Seb ka papri rog (Apple Scab)",
+      "category": "disease"
+    },
+    {
+      "english": "Black Rot",
+      "urdu": "سیاہ سڑن (بلیک راٹ)",
+      "transliteration": "Siyah saran (Black Rot)",
+      "category": "disease"
+    },
+    {
+      "english": "Frogeye Leaf Spot",
+      "urdu": "مینڈک کی آنکھ نما دھبے (فروگ آئی لیف سپاٹ)",
+      "transliteration": "Maindak ki aankh numa dhabay",
+      "category": "symptom"
+    },
+    {
+      "english": "Cedar Apple Rust",
+      "urdu": "سیب اور صنوبر کا زنگ (سیڈر ایپل رسٹ)",
+      "transliteration": "Seb aur sanober ka zang",
+      "category": "disease"
+    },
+    {
+      "english": "Gray Leaf Spot",
+      "urdu": "مکئی کا سرمئی پتا دھبہ روگ (گرے لیف سپاٹ)",
+      "transliteration": "Makai ka surmayi pata dhabba rog",
+      "category": "disease"
+    },
+    {
+      "english": "Common Rust",
+      "urdu": "مکئی کا عام زنگ (کامن رسٹ)",
+      "transliteration": "Makai ka aam zang",
+      "category": "disease"
+    },
+    {
+      "english": "Northern Corn Leaf Blight",
+      "urdu": "مکئی کا شمالی پتوں کا جھلساؤ (ناردن لیف بلائٹ)",
+      "transliteration": "Makai ka shumali paton ka jhulsa'o",
+      "category": "disease"
+    },
+    {
+      "english": "Early Blight",
+      "urdu": "آلو کا اگیتی جھلساؤ (ارلی بلائٹ)",
+      "transliteration": "Aloo ka ageti jhulsa'o",
+      "category": "disease"
+    },
+    {
+      "english": "Late Blight",
+      "urdu": "آلو کا پچھیتی جھلساؤ (لیٹ بلائٹ)",
+      "transliteration": "Aloo ka pacheti jhulsa'o",
+      "category": "disease"
+    },
+    {
+      "english": "Healthy Crop",
+      "urdu": "صحت مند فصل",
+      "transliteration": "Sehat mand fasal",
+      "category": "condition"
+    },
+    {
+      "english": "Fungicide",
+      "urdu": "پھپھوند کش ادویات",
+      "transliteration": "Faphond kash adwiyat",
+      "category": "treatment"
+    },
+    {
+      "english": "Protectant Fungicide",
+      "urdu": "حفاظتی پھپھوند کش",
+      "transliteration": "Hifazati faphond kash",
+      "category": "treatment"
+    },
+    {
+      "english": "Systemic Fungicide",
+      "urdu": "سرائیت پذیر پھپھوند کش",
+      "transliteration": "Sarayat pazeer faphond kash",
+      "category": "treatment"
+    },
+    {
+      "english": "Pre-Harvest Interval",
+      "urdu": "کٹائی سے قبل محفوظ وقفہ (پی ایچ آئی)",
+      "transliteration": "Katai se qabal mehfooz waqfa",
+      "category": "safety"
+    },
+    {
+      "english": "Crop Rotation",
+      "urdu": "فصلوں کا ہیر پھیر (رد و بدل)",
+      "transliteration": "Faslon ka her pher",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Pruning",
+      "urdu": "شاخ تراشی (کانٹ چھانٹ)",
+      "transliteration": "Shaakh tarashi",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Dehaulming",
+      "urdu": "آلو کی بیلیں کاٹنا (ڈی ہالمنگ)",
+      "transliteration": "Aloo ki belain kaatna",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Cull Piles",
+      "urdu": "بیمار اور ناکارہ آلوؤں کے ڈھیر",
+      "transliteration": "Bemaar aur nakara aloo'on ke dhair",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Certified Seed",
+      "urdu": "تصدیق شدہ بیج",
+      "transliteration": "Tasdeeq shuda beej",
+      "category": "prevention"
+    },
+    {
+      "english": "Ridge Planting",
+      "urdu": "وٹوں / پٹڑیوں پر کاشت",
+      "transliteration": "Waton / patriyon par kaasht",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Furrow Irrigation",
+      "urdu": "کھیلیوں / نالیوں کا طریقہ آبپاشی",
+      "transliteration": "Kheliyon / naliyon ka tareeqa aabpashi",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Pre-sprouting",
+      "urdu": "پیشگی کونپلیں نکالنا (چٹنگ)",
+      "transliteration": "Peshgi komplain nikalna",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Suberization",
+      "urdu": "زخم کا مندمل ہونا اور حفاظتی چھال بننا",
+      "transliteration": "Zakham ka mundamil hona",
+      "category": "cultural_practice"
+    },
+    {
+      "english": "Symptoms",
+      "urdu": "علامات",
+      "transliteration": "Alamaat",
+      "category": "section"
+    },
+    {
+      "english": "Prevention",
+      "urdu": "حفاظتی تدابیر",
+      "transliteration": "Hifazati tadabeer",
+      "category": "section"
+    },
+    {
+      "english": "Recommended Management",
+      "urdu": "تجویز کردہ انسداد و علاج",
+      "transliteration": "Tajweez karda insidad o ilaaj",
+      "category": "section"
+    },
+    {
+      "english": "Crop-Stage Guidance",
+      "urdu": "فصل کے مرحلہ وار رہنمائی",
+      "transliteration": "Fasal ke marhala waar rehnumayi",
+      "category": "section"
+    },
+    {
+      "english": "Citations",
+      "urdu": "مستند حوالہ جات",
+      "transliteration": "Mustanad hawala jaat",
+      "category": "section"
+    },
+    {
+      "english": "Limitations",
+      "urdu": "وضاحتی حدود و تنبیہ",
+      "transliteration": "Wazahati hudood o tanbeeh",
+      "category": "section"
+    }
+  ]
+}

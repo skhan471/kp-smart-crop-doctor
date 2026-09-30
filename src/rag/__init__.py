@@ -1,7 +1,8 @@
-"""Retrieval-Augmented Generation (RAG) and agricultural knowledge base package.
+"""Retrieval-Augmented Generation (RAG) and multilingual advisory package.
 
 Provides document ingestion, section-aware chunking, dense vector embeddings,
-local FAISS vector storage, and source-grounded retrieval with provenance citations.
+local FAISS vector storage, source-grounded retrieval, terminology glossaries,
+and grounded bilingual (English/Urdu) advisory generation.
 """
 
 from src.rag.document_loader import (
@@ -22,6 +23,18 @@ from src.rag.retriever import (
     RetrievalResponse,
     format_citation,
 )
+from src.rag.glossary import (
+    AgriculturalGlossary,
+    get_glossary,
+)
+from src.rag.translator import (
+    AgriculturalTranslator,
+)
+from src.rag.generator import (
+    StructuredAdvisory,
+    GroundedAdvisoryGenerator,
+    LocalExtractiveSynthesizer,
+)
 
 __all__ = [
     "AgriculturalDocument",
@@ -36,4 +49,10 @@ __all__ = [
     "RetrievedChunk",
     "RetrievalResponse",
     "format_citation",
+    "AgriculturalGlossary",
+    "get_glossary",
+    "AgriculturalTranslator",
+    "StructuredAdvisory",
+    "GroundedAdvisoryGenerator",
+    "LocalExtractiveSynthesizer",
 ]

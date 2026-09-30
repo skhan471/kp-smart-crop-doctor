@@ -59,7 +59,8 @@ models/checkpoints/
 
 # Vector Database & Retrieval Cache
 knowledge_base/vector_store/
-knowledge_base/cache/
+knowledge_base/cache/*
+!knowledge_base/cache/translation_cache.json
 *.faiss
 *.index
 *.pkl

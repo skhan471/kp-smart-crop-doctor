@@ -89,28 +89,65 @@ def format_citation(meta: Dict[str, Any]) -> str:
 
 
 SUPPORTED_CROPS = {"apple", "maize", "corn", "potato"}
+SUPPORTED_CROPS_UR = {"سیب", "مکئی", "آلو"}
+
 UNSUPPORTED_CROPS = {
     "wheat", "cotton", "sugarcane", "tobacco", "citrus", "orange",
     "lemon", "mango", "banana", "peach", "plum", "apricot",
     "tomato", "rice", "grape", "chilli", "pepper", "onion", "garlic"
 }
 
+UNSUPPORTED_CROPS_UR = {
+    "گندم": "Wheat",
+    "کپاس": "Cotton",
+    "کماد": "Sugarcane",
+    "گنا": "Sugarcane",
+    "تمباکو": "Tobacco",
+    "ترشاوہ": "Citrus",
+    "سٹرس": "Citrus",
+    "مالٹا": "Citrus",
+    "لیموں": "Citrus",
+    "آم": "Mango",
+    "کیلا": "Banana",
+    "آڑو": "Peach",
+    "خوبانی": "Apricot",
+    "ٹماٹر": "Tomato",
+    "چاول": "Rice",
+    "دھان": "Rice",
+    "انگور": "Grape",
+    "مرچ": "Chilli",
+    "پیاز": "Onion",
+    "لہسن": "Garlic",
+}
+
 
 def detect_out_of_scope_crop(query: str) -> Optional[str]:
     """Detect if a query explicitly targets an unsupported agricultural crop.
 
+    Supports both English and Urdu crop designations.
+
     Args:
-        query: User query string.
+        query: User query string in English or Urdu.
 
     Returns:
         Name of unsupported crop if detected without supported crops, otherwise None.
     """
     words = re.findall(r"\b[a-zA-Z]+\b", query.lower())
-    has_supported = any(c in words for c in SUPPORTED_CROPS)
-    for word in words:
-        if word in UNSUPPORTED_CROPS and not has_supported:
-            return word.capitalize()
+    has_supported_en = any(c in words for c in SUPPORTED_CROPS)
+    has_supported_ur = any(c in query for c in SUPPORTED_CROPS_UR)
+
+    if not (has_supported_en or has_supported_ur):
+        # 1. Check English crop words
+        for word in words:
+            if word in UNSUPPORTED_CROPS:
+                return word.capitalize()
+        # 2. Check Urdu crop words
+        for ur_crop, en_crop in UNSUPPORTED_CROPS_UR.items():
+            if ur_crop in query:
+                return en_crop
+
     return None
+
 
 
 class AgriculturalRetriever:
