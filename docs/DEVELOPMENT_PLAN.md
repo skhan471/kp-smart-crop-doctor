@@ -64,7 +64,7 @@ Farmers in Khyber Pakhtunkhwa face significant yield loss due to plant diseases 
 
 ---
 
-### Milestone 1: Scaffolding, Architecture & Reproducibility (Current Phase)
+### Milestone 1: Scaffolding, Architecture & Reproducibility (Completed)
 * **Goal:** Establish a modular repository layout, centralized configuration, dependency specifications, and reproducibility foundations.
 * **Deliverables:**
   - Project directory structure (`src/`, `data/`, `models/`, `knowledge_base/`, `evaluation/`, `tests/`).
@@ -78,52 +78,50 @@ Farmers in Khyber Pakhtunkhwa face significant yield loss due to plant diseases 
 
 ---
 
-### Milestone 2: Dataset Selection, KP Crop Filtering & Stratified Partitioning
+### Milestone 2: Dataset Selection, KP Crop Filtering & Stratified Partitioning (Completed)
 * **Goal:** Define and assemble the leaf disease dataset focusing strictly on crops of economic importance to Khyber Pakhtunkhwa, establishing reproducible data manifests without data leakage.
 * **Key Tasks:**
-  - Audit open-access agricultural datasets (e.g., PlantVillage, PlantDoc, regional repositories).
-  - Select classes relevant to KP agricultural profiles:
-    - *Wheat:* Leaf Rust, Septoria, Healthy
-    - *Maize:* Common Rust, Northern Leaf Blight, Gray Leaf Spot, Healthy
-    - *Tomato:* Early Blight, Late Blight, Bacterial Spot, Yellow Leaf Curl Virus, Healthy
-    - *Potato:* Early Blight, Late Blight, Healthy
-    - *Citrus / Apple:* Black Rot, Scab, Citrus Greening, Healthy
-  - Create `src/data/download.py` (scripted download or local extraction instructions).
-  - Implement `src/data/preprocess.py` for image normalization, duplicate removal, and corruption validation.
-  - Generate deterministic stratified train / validation / test splits (70% / 15% / 15%) and save CSV manifests with SHA256 checksums in `data/splits/`.
-* **Deliverables:** `dataset_manifest.csv`, `train.csv`, `val.csv`, `test.csv`, and data verification unit tests.
+  - Audit open-access agricultural datasets against 9 objective criteria.
+  - Finalized 11 classes across Maize, Potato, and Apple (9,175 total images, 256x256 RGB, 0 corrupt files, CC0 license).
+  - Implemented `src/data/download.py`, `src/data/profiling.py`, `src/data/split.py`, `src/data/run_pipeline.py`.
+  - Generated group-stratified (leaf-group isolated) splits with zero leakage: Train: 6,422 (70.0%), Val: 1,376 (15.0%), Test: 1,377 (15.0%) with SHA-256 manifests in `data/splits/`.
+* **Deliverables:** `dataset_manifest.csv`, `train.csv`, `val.csv`, `test.csv`, and data verification unit tests in `tests/test_data.py`.
 * **Exit Criteria:** Zero overlap between splits; class distributions match stratified ratios; verifiable with `pytest tests/test_data.py`.
 
 ---
 
-### Milestone 3: Transfer Learning Classifier with Top-2 Confidence Estimation
+### Milestone 3: Transfer Learning Classifier with Top-2 Confidence Estimation (Completed)
 * **Goal:** Build, train, and evaluate a lightweight deep learning vision classifier tailored for resource-constrained agricultural deployment.
 * **Key Tasks:**
-  - Implement model wrapper in `src/vision/model.py` supporting `MobileNetV3-Large` and `EfficientNet-B0` with customizable classifier heads and dropout.
-  - Build PyTorch dataset & data loader pipeline with data augmentations (random horizontal flip, rotation, color jitter) in `src/vision/dataset.py`.
-  - Implement modular training script with early stopping, learning rate scheduler, mixed precision, and checkpointing in `src/vision/train.py`.
-  - Build inference pipeline `src/vision/predict.py` calculating softmax probabilities, top-1 and top-2 class predictions, and confidence margins.
-  - Implement classification evaluation suite in `evaluation/metrics.py` (Top-1 Accuracy, Top-2 Accuracy, Macro-F1, Confusion Matrix).
-* **Deliverables:** Trained model checkpoint `models/best_crop_model.pt`, label mapping JSON, evaluation metric report.
+  - Implemented model wrappers for `MobileNetV3-Large` and `EfficientNet-B0`.
+  - Built training pipeline under strictly identical experimental setups (AdamW, CosineAnnealingLR, seed 42, class-weighted CE loss).
+  - Validation Macro-F1 model selection:
+    - **MobileNetV3-Large (Selected):** Val Macro-F1: **97.73%**, Test Top-1: **97.53%**, Top-2: **99.78%**, Test Macro-F1: **96.57%**, ECE: **1.40%**, CPU Latency: **28.4 ms**, Size: **16.3 MB**.
+    - **EfficientNet-B0:** Val Macro-F1: **95.35%**, Test Top-1: **95.06%**, Top-2: **99.35%**, Test Macro-F1: **93.52%**, ECE: **5.89%**, CPU Latency: **48.0 ms**, Size: **15.6 MB**.
+  - Generated evaluation artifacts, confusion matrices, reliability diagrams in `evaluation/figures/`.
+* **Deliverables:** Trained model checkpoint `models/best_crop_model.pt`, label mapping JSON `models/label_encoder.json`, evaluation metric report `evaluation/comparative_evaluation_report.json`.
 * **Exit Criteria:** Top-1 Accuracy >= 92%, Top-2 Accuracy >= 97% on unseen test split; deterministic inference tested.
 
 ---
 
-### Milestone 4: Explainable AI Pipeline (Custom Grad-CAM Implementation)
+### Milestone 4: Explainable AI Pipeline (Custom Grad-CAM Implementation) (Completed)
 * **Goal:** Implement Gradient-weighted Class Activation Mapping (Grad-CAM) to visualize convolutional feature representations and verify diagnostic reasoning.
 * **Key Tasks:**
-  - Build `src/explainability/gradcam.py` using forward and backward PyTorch hooks on the final convolutional feature layer.
-  - Compute class-specific gradients with respect to activation maps:
-    $$A^k = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{i,j}}$$
+  - Built `src/explainability/gradcam.py` using forward and backward PyTorch hooks on the final convolutional feature layer (`model.features[16]`).
+  - Mathematical formulation implemented with global average pooling of gradients:
+    $$\alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A^k_{i,j}}$$
     $$L^c_{\text{Grad-CAM}} = \text{ReLU}\left(\sum_k \alpha_k^c A^k\right)$$
-  - Implement heatmap generation, bilateral filtering / interpolation to original image dimensions (224x224), and colormap blending.
-  - Generate visual explanation artifacts showing original leaf, heatmap, and overlay side-by-side for both top-1 and top-2 predicted classes.
-* **Deliverables:** `src/explainability/gradcam.py`, unit test verifying hook registration and non-empty heatmap generation.
-* **Exit Criteria:** Heatmap cleanly localizes diseased spots (verified qualitatively on test samples); no gradient leaks or memory leaks during inference.
+  - Implemented bilinear interpolation to input dimensions (224x224), min-max normalization, colormap heatmap generation, and alpha blending overlays.
+  - Implemented reusable inference & explainability API `predict_and_explain` returning predicted class, confidence, top-2 predictions, original image, Grad-CAM heatmap, and overlay.
+  - Implemented Adebayo et al. (NeurIPS 2018) model-randomization sanity checks with Pearson correlation ($r$), Spearman rank correlation ($\rho$), and MAE.
+  - Evaluated on all 11 classes, specifically verifying difficult classes (e.g., Maize Cercospora/Gray Leaf Spot and Potato healthy).
+  - Generated publication-grade figures in `evaluation/figures/gradcam_11_classes_grid.png` and `evaluation/figures/gradcam_sanity_check_randomization.png`.
+* **Deliverables:** `src/explainability/gradcam.py`, `src/explainability/evaluate_gradcam.py`, `evaluation/gradcam_evaluation_report.json`, test suite `tests/test_gradcam.py` (6 passing unit/integration tests).
+* **Exit Criteria:** Heatmaps cleanly localize diagnostic symptoms across all 11 classes; sanity check proves parameter sensitivity ($r \approx 0 < 0.35$); all 14 tests passing.
 
 ---
 
-### Milestone 5: Curated KP Knowledge Base & Source-Grounded RAG Pipeline
+### Milestone 5: Curated KP Knowledge Base & Source-Grounded RAG Pipeline (Next Phase)
 * **Goal:** Construct a verified agricultural knowledge repository and a Retrieval-Augmented Generation pipeline that synthesizes localized agronomic advice while citing verified sources.
 * **Key Tasks:**
   - Curate official agricultural documents:

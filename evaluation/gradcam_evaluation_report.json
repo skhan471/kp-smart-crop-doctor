@@ -1,0 +1,267 @@
+{
+  "milestone": "Milestone 4 - Explainable AI Pipeline using Grad-CAM",
+  "model_architecture": "MobileNetV3-Large",
+  "target_layer": "features.16",
+  "classes_evaluated": 11,
+  "per_class_explanations": [
+    {
+      "ground_truth": "Apple___Apple_scab",
+      "predicted_class": "Apple___Apple_scab",
+      "is_correct": true,
+      "confidence": 0.7492,
+      "top2_predictions": [
+        {
+          "class_name": "Apple___Apple_scab",
+          "confidence": 0.7492
+        },
+        {
+          "class_name": "Apple___Black_rot",
+          "confidence": 0.133
+        }
+      ],
+      "filename": "70fa2c8f-5657-444f-b57b-3ad6755acc74___FREC_Scab 3275.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.2381
+    },
+    {
+      "ground_truth": "Apple___Black_rot",
+      "predicted_class": "Apple___Black_rot",
+      "is_correct": true,
+      "confidence": 0.9984,
+      "top2_predictions": [
+        {
+          "class_name": "Apple___Black_rot",
+          "confidence": 0.9984
+        },
+        {
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.0013
+        }
+      ],
+      "filename": "39cf3d6d-0324-4d2c-8a43-ee21f8b910c2___JR_FrgE.S 8603.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.1784
+    },
+    {
+      "ground_truth": "Apple___Cedar_apple_rust",
+      "predicted_class": "Apple___Cedar_apple_rust",
+      "is_correct": true,
+      "confidence": 0.997,
+      "top2_predictions": [
+        {
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.997
+        },
+        {
+          "class_name": "Apple___Apple_scab",
+          "confidence": 0.0021
+        }
+      ],
+      "filename": "5c2677da-56e7-47bc-bc21-31a1db9ff5bf___FREC_C.Rust 9799.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.2524
+    },
+    {
+      "ground_truth": "Apple___healthy",
+      "predicted_class": "Apple___healthy",
+      "is_correct": true,
+      "confidence": 0.9931,
+      "top2_predictions": [
+        {
+          "class_name": "Apple___healthy",
+          "confidence": 0.9931
+        },
+        {
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.0026
+        }
+      ],
+      "filename": "643e172f-02bf-4021-9587-6cfd21c8a344___RS_HL 6053.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.4173
+    },
+    {
+      "ground_truth": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "predicted_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "is_correct": true,
+      "confidence": 0.9989,
+      "top2_predictions": [
+        {
+          "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "confidence": 0.9989
+        },
+        {
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.0011
+        }
+      ],
+      "filename": "e10b0d3a-440b-46cd-a7f4-351196dcd1df___RS_GLSp 4323.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.4097
+    },
+    {
+      "ground_truth": "Corn_(maize)___Common_rust_",
+      "predicted_class": "Corn_(maize)___Common_rust_",
+      "is_correct": true,
+      "confidence": 0.9996,
+      "top2_predictions": [
+        {
+          "class_name": "Corn_(maize)___Common_rust_",
+          "confidence": 0.9996
+        },
+        {
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.0004
+        }
+      ],
+      "filename": "RS_Rust 2552.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.4547
+    },
+    {
+      "ground_truth": "Corn_(maize)___Northern_Leaf_Blight",
+      "predicted_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "is_correct": true,
+      "confidence": 0.8245,
+      "top2_predictions": [
+        {
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.8245
+        },
+        {
+          "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "confidence": 0.175
+        }
+      ],
+      "filename": "58392979-d178-4238-816f-b1e40e216188___RS_NLB 3843.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.4618
+    },
+    {
+      "ground_truth": "Corn_(maize)___healthy",
+      "predicted_class": "Corn_(maize)___healthy",
+      "is_correct": true,
+      "confidence": 0.9997,
+      "top2_predictions": [
+        {
+          "class_name": "Corn_(maize)___healthy",
+          "confidence": 0.9997
+        },
+        {
+          "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "confidence": 0.0001
+        }
+      ],
+      "filename": "25c29dbe-f9fd-4e65-a47f-501fd5d7ba86___R.S_HL 8116 copy 3.jpg",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.3555
+    },
+    {
+      "ground_truth": "Potato___Early_blight",
+      "predicted_class": "Potato___Early_blight",
+      "is_correct": true,
+      "confidence": 0.9994,
+      "top2_predictions": [
+        {
+          "class_name": "Potato___Early_blight",
+          "confidence": 0.9994
+        },
+        {
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.0002
+        }
+      ],
+      "filename": "5a6f3209-223e-43e5-8680-41dd3d5091ce___RS_Early.B 7288.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.2952
+    },
+    {
+      "ground_truth": "Potato___Late_blight",
+      "predicted_class": "Potato___Late_blight",
+      "is_correct": true,
+      "confidence": 0.9716,
+      "top2_predictions": [
+        {
+          "class_name": "Potato___Late_blight",
+          "confidence": 0.9716
+        },
+        {
+          "class_name": "Apple___Black_rot",
+          "confidence": 0.0096
+        }
+      ],
+      "filename": "c6842cfb-6996-4a51-bc0a-7e2f89a903f0___RS_LB 3911.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.2474
+    },
+    {
+      "ground_truth": "Potato___healthy",
+      "predicted_class": "Potato___healthy",
+      "is_correct": true,
+      "confidence": 0.9987,
+      "top2_predictions": [
+        {
+          "class_name": "Potato___healthy",
+          "confidence": 0.9987
+        },
+        {
+          "class_name": "Potato___Late_blight",
+          "confidence": 0.0007
+        }
+      ],
+      "filename": "b4031970-60ea-4739-9fed-6c81be1bad1c___RS_HL 1752.JPG",
+      "cam_min": 0.0,
+      "cam_max": 1.0,
+      "cam_mean": 0.2539
+    }
+  ],
+  "sanity_check_results": [
+    {
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "filename": "e10b0d3a-440b-46cd-a7f4-351196dcd1df___RS_GLSp 4323.JPG",
+      "pearson_correlation": 0.0,
+      "spearman_rank_correlation": -0.041,
+      "mean_absolute_error": 0.4097,
+      "passed": true
+    },
+    {
+      "class_name": "Potato___Early_blight",
+      "filename": "5a6f3209-223e-43e5-8680-41dd3d5091ce___RS_Early.B 7288.JPG",
+      "pearson_correlation": 0.0,
+      "spearman_rank_correlation": -0.0084,
+      "mean_absolute_error": 0.2952,
+      "passed": true
+    },
+    {
+      "class_name": "Apple___Apple_scab",
+      "filename": "70fa2c8f-5657-444f-b57b-3ad6755acc74___FREC_Scab 3275.JPG",
+      "pearson_correlation": 0.0,
+      "spearman_rank_correlation": 0.1208,
+      "mean_absolute_error": 0.2381,
+      "passed": true
+    },
+    {
+      "class_name": "Potato___healthy",
+      "filename": "b4031970-60ea-4739-9fed-6c81be1bad1c___RS_HL 1752.JPG",
+      "pearson_correlation": 0.0,
+      "spearman_rank_correlation": 0.1859,
+      "mean_absolute_error": 0.2539,
+      "passed": true
+    }
+  ],
+  "all_sanity_checks_passed": true,
+  "figures": {
+    "gradcam_11_classes_grid": "C:\\Users\\DELL\\Downloads\\kp-smart-crop-doctor\\evaluation\\figures\\gradcam_11_classes_grid.png",
+    "gradcam_sanity_check_randomization": "C:\\Users\\DELL\\Downloads\\kp-smart-crop-doctor\\evaluation\\figures\\gradcam_sanity_check_randomization.png"
+  }
+}
