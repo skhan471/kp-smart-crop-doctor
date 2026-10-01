@@ -160,20 +160,21 @@ Farmers in Khyber Pakhtunkhwa face significant yield loss due to plant diseases 
 
 ---
 
-### Milestone 7: Interactive Streamlit Web Application Dashboard (Next Phase)
+### Milestone 7: Interactive Streamlit Web Application Dashboard (Completed)
 * **Goal:** Unify vision classification, Grad-CAM visualization, RAG advisory, and bilingual translation into an intuitive, polished web dashboard.
 * **Key Tasks:**
   - Build `app.py` and modular layout components in `src/app/ui_components.py`.
   - Implement responsive controls:
-    - Leaf image uploader (drag & drop, sample selector)
-    - Language switcher (English / اردو)
-    - Disease diagnosis card with Top-1 and Top-2 confidence progress bars
-    - Interactive Grad-CAM inspection viewer (slider to adjust heatmap transparency overlay)
-    - Grounded Advisory Section: Symptoms, Causes, Organic Management, Chemical Treatments, and Source Citations
-    - Interactive QA chat assistant grounded in the retrieved documents for the diagnosed crop
-  - Cache heavy models (`@st.cache_resource`) for fast sub-second inference.
-* **Deliverables:** Fully functioning `app.py` adhering to Streamlit best practices.
-* **Exit Criteria:** App launches with `streamlit run app.py`; clean UX on desktop and mobile viewports.
+    - Leaf image uploader (drag & drop, curated 11-class sample gallery)
+    - Language switcher (English / اردو) with Right-to-Left (RTL) styling and Urdu typography
+    - Disease diagnosis card with Top-1 and Top-2 confidence progress bars and calibration caveats
+    - Interactive Grad-CAM inspection viewer (dynamic alpha blending slider for heatmap transparency)
+    - Grounded Advisory Section: Symptoms, Causes, Organic Management, Chemical Treatments, and Institutional Citations
+    - Interactive QA chat assistant grounded in the retrieved documents for the diagnosed crop with out-of-scope abstention
+  - Cache heavy models (`@st.cache_resource`) and enforce offline HuggingFace loading for fast sub-second inference.
+  - Implement automated test suite covering UI components and headless Streamlit execution (`tests/test_app.py`).
+* **Deliverables:** `app.py`, `src/app/ui_components.py`, `src/app/demo_samples.py`, `tests/test_app.py`, `milestone_7_streamlit_report.md`.
+* **Exit Criteria:** App launches with `streamlit run app.py` (verified HTTP 200 OK); all 43 automated tests passing cleanly; UX validated across English and Urdu.
 
 ---
 

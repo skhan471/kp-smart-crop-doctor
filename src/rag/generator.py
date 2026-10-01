@@ -236,7 +236,11 @@ class GroundedAdvisoryGenerator:
             else:
                 retrieval_query = translated_en
         else:
-            retrieval_query = query
+            if crop and disease_class and crop.lower() not in query.lower():
+                clean_disease = disease_class.replace("___", " ").replace("_", " ")
+                retrieval_query = f"{crop} {clean_disease}: {query}".strip()
+            else:
+                retrieval_query = query
 
         # 3. Retrieve evidence from knowledge base
         retrieval_response = self.retriever.retrieve(
