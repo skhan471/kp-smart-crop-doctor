@@ -188,13 +188,20 @@ The project is structured into 8 structured milestones (see [docs/DEVELOPMENT_PL
 | Milestone | Focus | Key Deliverables | Status |
 |:---:|:---|:---|:---:|
 | **M1** | Scaffolding & Architecture | Directory structure, configs, seeds, tests, requirements | **Completed** |
-| **M2** | Dataset Curation (KP Crops) | KP crop selection, image validation, stratified splits (70/15/15) | *Pending Review* |
-| **M3** | Transfer Learning Vision Model | MobileNetV3/EfficientNet training, Top-2 confidence head | Planned |
-| **M4** | Explainable AI (Grad-CAM) | Activation hooks, lesion heatmaps, overlay visualizer | Planned |
-| **M5** | Agricultural Knowledge Base & RAG | KP extension docs, FAISS index, source-grounded LLM synthesis | Planned |
-| **M6** | Multilingual Support | English & Urdu translation, agricultural dictionary, RTL layout | Planned |
-| **M7** | Interactive Streamlit App | Complete web dashboard, interactive sliders, bilingual UI | Planned |
-| **M8** | Evaluation & Defense Pack | Benchmark metrics, RAG fidelity checks, capstone presentation | Planned |
+| **M2** | Dataset Curation (KP Crops) | 11-class subset (Maize, Potato, Apple), leak-free leaf-group splits | **Completed** |
+| **M3** | Transfer Learning Vision Model | MobileNetV3-Large training, Top-2 head, EfficientNet comparison | **Completed** |
+| **M4** | Explainable AI (Grad-CAM) | Activation hooks on `features.16`, Adebayo sanity check, overlays | **Completed** |
+| **M5** | Agricultural Knowledge Base & RAG | 11 curated KP bulletins, FAISS index, provenance catalog | **Completed** |
+| **M6** | Multilingual Advisory Generation | Grounded synthesis, 33-term glossary, entity-safe Urdu translation | **Completed** |
+| **M7** | Interactive Streamlit App | Complete web dashboard, interactive opacity slider, bilingual RTL UI | **Completed** |
+| **M8** | Evaluation & Defense Pack | [Results Summary](docs/RESULTS_SUMMARY.md), [Capstone Defense Pack](docs/DEFENSE_PACK.md) | **Completed** |
+
+---
+
+## 📊 Comprehensive Results & Capstone Defense Pack
+
+- **Key Numerical Findings & Tables:** See [docs/RESULTS_SUMMARY.md](docs/RESULTS_SUMMARY.md) for full test metrics, baseline comparisons, Grad-CAM sanity checks, RAG retrieval scores, end-to-end latencies, and the 34-case error analysis.
+- **Academic Capstone Defense Pack:** See [docs/DEFENSE_PACK.md](docs/DEFENSE_PACK.md) for the 19-section defense reference covering problem formulation, methodology, leakage prevention, limitations, ethical safeguards, and likely viva defense questions and answers.
 
 ---
 

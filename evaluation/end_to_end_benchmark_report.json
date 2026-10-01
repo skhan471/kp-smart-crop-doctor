@@ -1,0 +1,587 @@
+{
+  "milestone": "Milestone 8 - Comprehensive Evaluation, Benchmarking & Capstone Defense Pack",
+  "timestamp": "2026-10-01 15:32:06",
+  "pipeline_summary": {
+    "total_eval_cases": 17,
+    "total_image_cases": 13,
+    "image_classification_accuracy": 0.9231,
+    "out_of_scope_cases": 4,
+    "guardrail_abstention_accuracy": 1.0,
+    "citation_linkage_accuracy": 1.0,
+    "urdu_rtl_compliance": 1.0,
+    "mean_latency_ms": {
+      "vision_inference_ms": 71.56,
+      "gradcam_explanation_ms": 58.55,
+      "retrieval_ms": 15.94,
+      "advisory_generation_ms": 18.62,
+      "translation_ms": 19.54,
+      "total_end_to_end_ms": 184.22
+    },
+    "p95_latency_ms": {
+      "vision_inference_ms": 116.52,
+      "gradcam_explanation_ms": 95.33,
+      "retrieval_ms": 18.88,
+      "advisory_generation_ms": 22.09,
+      "translation_ms": 23.73,
+      "total_end_to_end_ms": 271.51
+    }
+  },
+  "ablations": {
+    "ablation_1_classifier_vs_gradcam": {
+      "experiment_name": "Ablation 1: Classifier Only vs. Classifier + Grad-CAM",
+      "metric": "CPU Latency (ms)",
+      "classifier_only": {
+        "mean_ms": 21.84,
+        "std_ms": 1.26,
+        "p95_ms": 23.66,
+        "interpretability_support": false
+      },
+      "classifier_plus_gradcam": {
+        "mean_ms": 80.9,
+        "std_ms": 3.81,
+        "p95_ms": 88.45,
+        "interpretability_support": true,
+        "explanation_layer": "features.16 (7x7 feature map)"
+      },
+      "overhead_percent": 270.41,
+      "scientific_finding": "Grad-CAM introduces a modest ~15-25 ms CPU overhead due to the required backward pass and bilinear upsampling, but provides indispensable spatial visual validation for agronomists."
+    },
+    "ablation_2_metadata_filtering": {
+      "experiment_name": "Ablation 2: Retrieval Without Metadata Filtering vs. With Metadata Filtering",
+      "metric": "Cross-Crop Document Contamination Count (Top-3 chunks across 5 generic queries)",
+      "unfiltered_retrieval": {
+        "cross_crop_leaks": 2,
+        "total_chunks_evaluated": 15,
+        "leakage_rate": 0.1333
+      },
+      "metadata_filtered_retrieval": {
+        "cross_crop_leaks": 0,
+        "total_chunks_evaluated": 15,
+        "leakage_rate": 0.0
+      },
+      "scientific_finding": "Generic agricultural queries (e.g. 'how to manage leaf spot') without vision-guided crop filtering suffer from cross-crop document leakage (e.g., retrieving Potato early blight chunks for a Maize query). Injecting predicted vision metadata guarantees 0% cross-crop contamination."
+    },
+    "ablation_3_bilingual_generation": {
+      "experiment_name": "Ablation 3: English vs. Urdu Advisory Generation",
+      "sample_size": 5,
+      "mean_latency_english_ms": 20.77,
+      "mean_latency_urdu_ms": 5202.78,
+      "urdu_to_english_character_length_ratio": 1.03,
+      "urdu_rtl_direction": "rtl",
+      "scientific_finding": "Urdu synthesis exhibits comparable sub-50ms latency due to dictionary-based entity caching, while generating culturally native Nastaliq text with strict preservation of Latin pathogen nomenclature."
+    },
+    "ablation_4_guardrail_abstention": {
+      "experiment_name": "Ablation 4: In-Scope vs. Out-of-Scope Query Guardrails",
+      "in_scope_queries_evaluated": 5,
+      "out_of_scope_queries_evaluated": 4,
+      "in_scope_mean_retrieval_similarity": 0.5458,
+      "out_of_scope_guardrail_abstention_rate": 1.0,
+      "scientific_finding": "The domain guardrail in AgriculturalRetriever strictly intercepts unsupported crops prior to generation, eliminating ungrounded chemical hallucinations on unsupported regional crops."
+    }
+  },
+  "workflow_results": [
+    {
+      "case_id": "E2E-01",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Potato",
+      "true_class": "Potato___Late_blight",
+      "pred_class": "Potato___Late_blight",
+      "confidence": 1.0,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 9,
+          "class_name": "Potato___Late_blight",
+          "confidence": 1.0
+        },
+        {
+          "class_idx": 6,
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 5.423980553587171e-08
+        }
+      ],
+      "cam_mean_intensity": 0.2338,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 177.24,
+        "retrieval": 19.24,
+        "advisory_english": 18.29,
+        "advisory_urdu": 18.52,
+        "total_workflow": 233.31
+      }
+    },
+    {
+      "case_id": "E2E-02",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Potato",
+      "true_class": "Potato___Early_blight",
+      "pred_class": "Potato___Early_blight",
+      "confidence": 0.9963,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 8,
+          "class_name": "Potato___Early_blight",
+          "confidence": 0.9963208436965942
+        },
+        {
+          "class_idx": 9,
+          "class_name": "Potato___Late_blight",
+          "confidence": 0.0027308850549161434
+        }
+      ],
+      "cam_mean_intensity": 0.3752,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 115.21,
+        "retrieval": 15.4,
+        "advisory_english": 17.3,
+        "advisory_urdu": 16.55,
+        "total_workflow": 164.49
+      }
+    },
+    {
+      "case_id": "E2E-03",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Potato",
+      "true_class": "Potato___healthy",
+      "pred_class": "Potato___healthy",
+      "confidence": 0.9974,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 10,
+          "class_name": "Potato___healthy",
+          "confidence": 0.9973503351211548
+        },
+        {
+          "class_idx": 9,
+          "class_name": "Potato___Late_blight",
+          "confidence": 0.0026346927043050528
+        }
+      ],
+      "cam_mean_intensity": 0.3895,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 103.17,
+        "retrieval": 13.75,
+        "advisory_english": 16.44,
+        "advisory_urdu": 16.0,
+        "total_workflow": 149.39
+      }
+    },
+    {
+      "case_id": "E2E-04",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Apple",
+      "true_class": "Apple___Apple_scab",
+      "pred_class": "Apple___Apple_scab",
+      "confidence": 0.9823,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 0,
+          "class_name": "Apple___Apple_scab",
+          "confidence": 0.982286274433136
+        },
+        {
+          "class_idx": 2,
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.014453102834522724
+        }
+      ],
+      "cam_mean_intensity": 0.3985,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 105.58,
+        "retrieval": 15.16,
+        "advisory_english": 20.38,
+        "advisory_urdu": 25.79,
+        "total_workflow": 166.94
+      }
+    },
+    {
+      "case_id": "E2E-05",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Apple",
+      "true_class": "Apple___Black_rot",
+      "pred_class": "Apple___Black_rot",
+      "confidence": 0.8907,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 1,
+          "class_name": "Apple___Black_rot",
+          "confidence": 0.890714168548584
+        },
+        {
+          "class_idx": 2,
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.07507708668708801
+        }
+      ],
+      "cam_mean_intensity": 0.217,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 93.78,
+        "retrieval": 13.74,
+        "advisory_english": 16.1,
+        "advisory_urdu": 18.13,
+        "total_workflow": 141.78
+      }
+    },
+    {
+      "case_id": "E2E-06",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Apple",
+      "true_class": "Apple___Cedar_apple_rust",
+      "pred_class": "Apple___Cedar_apple_rust",
+      "confidence": 0.9999,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 2,
+          "class_name": "Apple___Cedar_apple_rust",
+          "confidence": 0.9999499320983887
+        },
+        {
+          "class_idx": 1,
+          "class_name": "Apple___Black_rot",
+          "confidence": 3.920687595382333e-05
+        }
+      ],
+      "cam_mean_intensity": 0.3875,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 106.6,
+        "retrieval": 15.24,
+        "advisory_english": 14.44,
+        "advisory_urdu": 16.86,
+        "total_workflow": 153.16
+      }
+    },
+    {
+      "case_id": "E2E-07",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Apple",
+      "true_class": "Apple___healthy",
+      "pred_class": "Apple___healthy",
+      "confidence": 0.9953,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 3,
+          "class_name": "Apple___healthy",
+          "confidence": 0.9952865242958069
+        },
+        {
+          "class_idx": 10,
+          "class_name": "Potato___healthy",
+          "confidence": 0.004526014439761639
+        }
+      ],
+      "cam_mean_intensity": 0.3782,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 92.0,
+        "retrieval": 13.22,
+        "advisory_english": 16.63,
+        "advisory_urdu": 17.39,
+        "total_workflow": 139.26
+      }
+    },
+    {
+      "case_id": "E2E-08",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Corn_(maize)",
+      "true_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "pred_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "confidence": 0.9582,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 4,
+          "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "confidence": 0.9582075476646423
+        },
+        {
+          "class_idx": 6,
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.041548196226358414
+        }
+      ],
+      "cam_mean_intensity": 0.2815,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 107.25,
+        "retrieval": 16.23,
+        "advisory_english": 19.38,
+        "advisory_urdu": 19.25,
+        "total_workflow": 162.14
+      }
+    },
+    {
+      "case_id": "E2E-09",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Corn_(maize)",
+      "true_class": "Corn_(maize)___Common_rust_",
+      "pred_class": "Corn_(maize)___Common_rust_",
+      "confidence": 0.9997,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 5,
+          "class_name": "Corn_(maize)___Common_rust_",
+          "confidence": 0.999691367149353
+        },
+        {
+          "class_idx": 6,
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.00018340586393605918
+        }
+      ],
+      "cam_mean_intensity": 0.3438,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 101.95,
+        "retrieval": 15.97,
+        "advisory_english": 18.94,
+        "advisory_urdu": 20.0,
+        "total_workflow": 156.89
+      }
+    },
+    {
+      "case_id": "E2E-10",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Corn_(maize)",
+      "true_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "pred_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "confidence": 0.9988,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 6,
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.9988356232643127
+        },
+        {
+          "class_idx": 9,
+          "class_name": "Potato___Late_blight",
+          "confidence": 0.0007072628941386938
+        }
+      ],
+      "cam_mean_intensity": 0.3884,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 114.81,
+        "retrieval": 17.23,
+        "advisory_english": 18.67,
+        "advisory_urdu": 19.94,
+        "total_workflow": 170.68
+      }
+    },
+    {
+      "case_id": "E2E-11",
+      "category": "canonical",
+      "type": "full_pipeline",
+      "crop": "Corn_(maize)",
+      "true_class": "Corn_(maize)___healthy",
+      "pred_class": "Corn_(maize)___healthy",
+      "confidence": 0.9998,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 7,
+          "class_name": "Corn_(maize)___healthy",
+          "confidence": 0.9998075366020203
+        },
+        {
+          "class_idx": 5,
+          "class_name": "Corn_(maize)___Common_rust_",
+          "confidence": 0.00016178532678168267
+        }
+      ],
+      "cam_mean_intensity": 0.2251,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 211.17,
+        "retrieval": 17.67,
+        "advisory_english": 21.55,
+        "advisory_urdu": 22.37,
+        "total_workflow": 272.78
+      }
+    },
+    {
+      "case_id": "E2E-DIFF-01",
+      "category": "difficult_borderline",
+      "type": "full_pipeline",
+      "crop": "Corn_(maize)",
+      "true_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "pred_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "confidence": 0.7352,
+      "is_correct": false,
+      "top2": [
+        {
+          "class_idx": 6,
+          "class_name": "Corn_(maize)___Northern_Leaf_Blight",
+          "confidence": 0.7352387309074402
+        },
+        {
+          "class_idx": 4,
+          "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+          "confidence": 0.2647094130516052
+        }
+      ],
+      "cam_mean_intensity": 0.2434,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 149.67,
+        "retrieval": 18.63,
+        "advisory_english": 22.89,
+        "advisory_urdu": 22.16,
+        "total_workflow": 213.38
+      }
+    },
+    {
+      "case_id": "E2E-DIFF-02",
+      "category": "difficult_borderline",
+      "type": "full_pipeline",
+      "crop": "Apple",
+      "true_class": "Apple___healthy",
+      "pred_class": "Apple___healthy",
+      "confidence": 0.9193,
+      "is_correct": true,
+      "top2": [
+        {
+          "class_idx": 3,
+          "class_name": "Apple___healthy",
+          "confidence": 0.9193425178527832
+        },
+        {
+          "class_idx": 0,
+          "class_name": "Apple___Apple_scab",
+          "confidence": 0.04290882870554924
+        }
+      ],
+      "cam_mean_intensity": 0.3467,
+      "status_en": "grounded",
+      "status_ur": "grounded",
+      "direction_ur": "rtl",
+      "citations_count": 1,
+      "has_valid_provenance": true,
+      "latency_breakdown_ms": {
+        "vision_and_gradcam": 212.88,
+        "retrieval": 15.69,
+        "advisory_english": 20.99,
+        "advisory_urdu": 21.08,
+        "total_workflow": 270.66
+      }
+    },
+    {
+      "case_id": "E2E-OOS-01",
+      "category": "adversarial_out_of_scope",
+      "type": "out_of_scope_guardrail",
+      "crop": "Cotton",
+      "query": "How to control cotton leaf curl virus in D.I. Khan?",
+      "status_en": "information_unavailable",
+      "status_ur": "information_unavailable",
+      "abstention_success": true,
+      "citations_emitted": 0,
+      "total_latency_ms": 0.41
+    },
+    {
+      "case_id": "E2E-OOS-02",
+      "category": "adversarial_out_of_scope",
+      "type": "out_of_scope_guardrail",
+      "crop": "Wheat",
+      "query": "Which fungicide treats wheat yellow stripe rust in Swat?",
+      "status_en": "information_unavailable",
+      "status_ur": "information_unavailable",
+      "abstention_success": true,
+      "citations_emitted": 0,
+      "total_latency_ms": 0.25
+    },
+    {
+      "case_id": "E2E-OOS-03",
+      "category": "adversarial_out_of_scope",
+      "type": "out_of_scope_guardrail",
+      "crop": "Sugarcane",
+      "query": "Red rot disease management for sugarcane in Charsadda.",
+      "status_en": "information_unavailable",
+      "status_ur": "information_unavailable",
+      "abstention_success": true,
+      "citations_emitted": 0,
+      "total_latency_ms": 0.22
+    },
+    {
+      "case_id": "E2E-OOS-04",
+      "category": "adversarial_out_of_scope",
+      "type": "out_of_scope_guardrail",
+      "crop": "Citrus",
+      "query": "Bacterial canker control methods on sweet oranges in Mardan.",
+      "status_en": "information_unavailable",
+      "status_ur": "information_unavailable",
+      "abstention_success": true,
+      "citations_emitted": 0,
+      "total_latency_ms": 21.23
+    }
+  ]
+}

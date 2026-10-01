@@ -178,18 +178,20 @@ Farmers in Khyber Pakhtunkhwa face significant yield loss due to plant diseases 
 
 ---
 
-### Milestone 8: Comprehensive Evaluation, Benchmarking & Capstone Defense Pack
+### Milestone 8: Comprehensive Evaluation, Benchmarking & Capstone Defense Pack (Completed)
 * **Goal:** Perform rigorous quantitative evaluation, prepare validation reports, and assemble all academic capstone deliverables.
 * **Key Tasks:**
-  - Run end-to-end evaluation benchmark across test split:
-    - Classification metrics: Precision, Recall, F1-Score, Confusion Matrix
-    - Inference latency (CPU vs GPU in ms per sample)
-    - XAI visual sanity check
-    - RAG answer faithfulness score
-  - Package sample test cases and demonstration notebook in `notebooks/capstone_demo.ipynb`.
-  - Assemble capstone presentation slides, final thesis documentation chapter references, and reproducibility instructions.
-* **Deliverables:** `evaluation/benchmark_report.json`, confusion matrix figures, capstone demonstration notebook.
-* **Exit Criteria:** All automated tests passing; full pipeline executable with a single reproduction command.
+  - Evaluated MobileNetV3-Large on held-out test set ($N=1,377$): 97.53% Top-1, 99.78% Top-2, 0.9657 Macro-F1, 1.40% ECE, 28.38 ms CPU latency.
+  - Documented baseline comparison with EfficientNet-B0 based on predefined validation criteria.
+  - Completed Grad-CAM evaluation and parameter-randomization sanity checks ($r=0.0000$).
+  - Evaluated RAG retrieval: 96.97% Hit@1, 100% Hit@3, 0.9848 MRR, 21.84 ms latency on 33 domain queries.
+  - Evaluated grounded advisory synthesis: 100% groundedness, 100% citation correctness, 100% guardrail abstention.
+  - Conducted end-to-end multimodal workflow evaluation across 17 canonical, difficult, and out-of-scope cases.
+  - Performed 4 controlled ablation experiments (Classifier vs. Grad-CAM, Filtered vs. Unfiltered RAG, English vs. Urdu, In-Scope vs. Out-of-Scope).
+  - Conducted detailed error analysis of all 34 test set misclassifications with root causes and system behavior.
+  - Assembled comprehensive Capstone Defense Pack (`docs/DEFENSE_PACK.md`) and Results Summary (`docs/RESULTS_SUMMARY.md`).
+* **Deliverables:** `evaluation/end_to_end_benchmark_report.json`, `docs/RESULTS_SUMMARY.md`, `docs/DEFENSE_PACK.md`, `evaluation/evaluate_end_to_end.py`.
+* **Exit Criteria:** All 43 automated tests passing; end-to-end reproducibility verified; capstone defense documentation complete.
 
 ---
 
